@@ -25,6 +25,10 @@ class NuclearDataComparator:
 	def __init__(self):
 		self.talys_data = None
 		self.selected_element = None
+<<<<<<< HEAD
+=======
+		self.sample_name = None
+>>>>>>> d1da805 (Initial commit: Nuclear Data Comparator)
 		self.talys_energies = set()
 		self.target_neutron_energy = 14.1  # МэВ
 		self.neutron_energy_tolerance = 2.0  # МэВ
@@ -798,7 +802,11 @@ class NuclearDataComparator:
 							   fit_x, fit_y, total_cs, total_cs_error, fit_params, fit_errors,
 							   chi2, ndf, external_ad_files, external_ed_files, 
 							   isotope, energy_keV, multipolarity, reaction_info,
+<<<<<<< HEAD
 							   external_data_dir, output_pdf, graph_name, all_talys_matches, talys_graphs_info):
+=======
+							   external_data_dir, output_pdf, output_dir, graph_name, all_talys_matches, talys_graphs_info):
+>>>>>>> d1da805 (Initial commit: Nuclear Data Comparator)
 		"""Создание графиков с учетом ВСЕХ близких энергий TALYS и их суммы"""
 		
 		fig, (ax1, ax2) = plt.subplots(2, 1, figsize=(14, 16))
@@ -994,10 +1002,26 @@ class NuclearDataComparator:
 
 		# Сохраняем в PDF
 		output_pdf.savefig(fig)
+<<<<<<< HEAD
 		plt.close()
 		
 		print(f"Plot created for {isotope}, Eγ = {energy_keV:.1f} keV")
 		
+=======
+		
+		svg_output_dir = os.path.join(output_dir, "svg", f"{self.selected_element}_{self.sample_name}")
+		os.makedirs(svg_output_dir, exist_ok=True)
+		
+		svg_filename = f"{self.selected_element}_{self.sample_name}_Egamma_{energy_keV:.1f}keV.svg"
+		svg_path = os.path.join(svg_output_dir, svg_filename)
+		plt.savefig(svg_path, format='svg', bbox_inches='tight')
+		print(f"SVG saved: {svg_path}")
+    
+		plt.close()
+    
+		print(f"Plot created for {isotope}, Eγ = {energy_keV:.1f} keV")
+    
+>>>>>>> d1da805 (Initial commit: Nuclear Data Comparator)
 		return total_cs, total_cs_error
 		
 
@@ -1036,6 +1060,10 @@ class NuclearDataComparator:
 		# Создаем PDF файл
 		os.makedirs(output_dir, exist_ok=True)
 		sample_name = os.path.basename(root_file).replace('.root', '').replace('_out', '')
+<<<<<<< HEAD
+=======
+		self.sample_name = sample_name
+>>>>>>> d1da805 (Initial commit: Nuclear Data Comparator)
 		pdf_filename = f"{self.selected_element}_{sample_name}_analysis.pdf"
 		pdf_path = os.path.join(output_dir, pdf_filename)
 		
@@ -1150,7 +1178,11 @@ class NuclearDataComparator:
 					fit_x, fit_y, total_cs, total_cs_error, fit_params, fit_errors,
 					chi2, ndf, external_ad_files, external_ed_files,
 					isotope, energy_keV, multipolarity, reaction_info,
+<<<<<<< HEAD
 					external_data_dir, pdf, graph_name_str, all_talys_matches, talys_graphs_info
+=======
+					external_data_dir, pdf, output_dir, graph_name_str, all_talys_matches, talys_graphs_info
+>>>>>>> d1da805 (Initial commit: Nuclear Data Comparator)
 				)
 				
 				total_cs_results.append({
