@@ -53,9 +53,6 @@ from nuclear_data_comparator import NuclearDataComparator
 # Инициализация компаратора
 comparator = NuclearDataComparator()
 
-# Установка элемента для анализа
-comparator.set_element("Fe")
-
 # Запуск анализа
 results = comparator.plot_comparison(
     root_file_dir="/path/to/root/files",
