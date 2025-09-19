@@ -45,19 +45,8 @@ pip install uproot matplotlib numpy pandas scipy
 ```
 Требуется ROOT для работы с фитированием.
 # Быстрый старт
-Необходимо прописать пути к файлам.
+Запустить файл comparator.py
 ```python
-
-from nuclear_data_comparator import NuclearDataComparator
-
-# Инициализация компаратора
-comparator = NuclearDataComparator()
-
-# Запуск анализа
-results = comparator.plot_comparison(
-    root_file_dir="/path/to/root/files",
-    talys_base_dir="/path/to/talys/data", 
-    external_data_dir="/path/to/external/data",
-    output_dir="results"
-)
+python comparator.py
 ```
+Но необходимо прописать в начале пути к фалам путь до сервера у вас на компьютере.
